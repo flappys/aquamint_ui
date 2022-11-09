@@ -31,7 +31,7 @@ function App() {
           <HoverSidebar />
           </div>
        
-          <div className='w-[97%] mt-4'>
+          <div className='w-[97%] overflow-x-hidden mt-4'>
             <Routes>
 
               <Route path="/" element={<Home />}></Route>

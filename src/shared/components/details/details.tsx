@@ -423,12 +423,8 @@ const gotoRoute = () => {
                 </div>
 
                 <div className="flex flex-col">
-                  <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="lg:px-16 py-4">
-                      <div className="overflow-hidden">
-                        <div className="flex mx-5">
-                          <div className="mt-8 grid md:grid-flow-col md:grid-rows-1 sm:grid-rows-2 gap-4 z-[-1]">
-                            {" "}
+                <div className="flex justify-center mx-5">
+                          <div className="mt-8 grid md:grid-flow-col md:grid-rows-1 sm:grid-rows-2 gap-10 z-[-1]">
                             {moreData?.map((item: any, index: any) => (
                               <div key={index}>
                                 <div className="relative border rounded-lg cursor-pointer">
@@ -507,9 +503,6 @@ const gotoRoute = () => {
                             View Collection
                           </h4>
                         </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
