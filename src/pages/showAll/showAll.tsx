@@ -53,6 +53,15 @@ function ShowAll() {
 
   return (
     <>
+    <div className='flex'>
+
+    <section className="text-white body-font overflow-hidden w-64">
+
+    </section>
+    <section className="text-white body-font overflow-hidden w-[85%]">
+        {/* <div className="container mx-72"> */}
+        <div className="container px-5 mx-auto">
+          <div className="flex flex-col">
       <div className="text-sm font-medium text-center text-gray-500  dark:text-gray-400 dark:border-gray-700 mt-8">
         <h1 className="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white">{locations.pathname.includes("2") ? "Live NFTs Auctions" : "Buy NFTs"}</h1>
         <ul className="flex flex-wrap justify-center -mb-px">
@@ -80,16 +89,18 @@ function ShowAll() {
 
       {/* <div className={hover == false ? "container ml-[8rem] mt-14 flex flex-row flex-wrap gap-10" : " mt-14 container ml-[22rem] flex flex-row flex-wrap gap-10"}> */}
 
-      <div className="grid md:grid-cols-4 container gap-3 relative top-10 left-[18rem]" >
+      <div className="grid md:grid-cols-4 sm:grid-cols-3 relative gap-4 py-10" >
+      {/* <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-3 relative top-10 " > */}
+
         {!showAll && showData?.map((auction: any, index: any) => <div className=' cursor-pointer' onClick={() => gotoRoute(auction)} >
           <div key={index} className="relative border rounded-lg" >
-            <div className="relative w-full h-72 rounded-lg ">
+          <div className="relative aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
               <img
                 src={getInfuraURL(
                   auction.meta.thumbnail || auction.meta.media
                 )}
                 alt=""
-                className="w-full h-full object-center object-cover"
+                // className="w-full h-full object-center object-cover"
               />
             </div>
             <div className='mx-2 py-2'>
@@ -136,6 +147,11 @@ function ShowAll() {
 
 
       </div>
+      </div>
+      </div>
+      </section>
+      </div>
+      
       <div className='h-10'></div>
 
       {showAll && <div>

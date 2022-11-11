@@ -16,6 +16,7 @@ function Details() {
   const [data, setData] = useState<any>({});
   const [moreData, setMoreData] = useState<any>([]);
   const navigate = useNavigate();
+  const [showModal, setShowModal] = React.useState(false);
 
   useEffect(() => {
     getDetails();
@@ -321,9 +322,107 @@ const gotoRoute = () => {
                 <button className="w-[50%] hover:cursor-pointer border-blue-600 border bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 whitespace-nowrap p-4 rounded-lg text-center text-white">
                   Buy for {data?.sale?.price} ETH
                 </button>
-                <button className="w-[50%] hover:cursor-pointer border-blue-600 text-blue-600 border whitespace-nowrap p-4 rounded-lg text-center ">
+                <button onClick={() => setShowModal(true)} className="w-[50%] hover:cursor-pointer border-blue-600 text-blue-600 border whitespace-nowrap p-4 rounded-lg text-center ">
                   Make an Offer
                 </button>
+
+                {showModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+             <div className="relative bg-[#0e0e0e] rounded-lg shadow w-96">
+    <button
+      type="button"
+      className="absolute top-3 right-2.5 text-gray-400 bg-transparent border-2 border-gray-100 rounded-full text-sm p-1.5 ml-auto inline-flex items-center bg-gray-100"
+      data-modal-toggle="authentication-modal"
+      onClick={() => setShowModal(false)} 
+    >
+      <svg
+        aria-hidden="true"
+        className="w-5 h-5"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+          clipRule="evenodd"
+        />
+      </svg>
+      <span className="sr-only">Close modal</span>
+    </button>
+    <div className="py-6 px-6 lg:px-8">
+      <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
+      Make your offer
+      </h3>
+      <span className="text-sm">You’re making offer for {data?.meta?.name}</span>
+      <form className="space-y-6 py-5" action="#">
+        <div>
+          <label
+            htmlFor="amount"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Enter amount
+          </label>
+          <input
+            type="number"
+            name="amount"
+            className="bg-[#0e0e0e] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="Enter amount"
+            
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="Duration"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Duration
+          </label>
+          <div className="flex gap-3">
+          <input
+            type="text"
+            name="Duration"
+            className=" bg-[#0e0e0e] w-[60%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            
+          />
+          <select className="bg-[#0e0e0e] w-[35%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1  ml-8 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" name="" id="">
+          <option value="">Hours</option>
+            <option value="">Days</option>
+            <option value="">Weeks</option>
+            <option value="">Custom</option>
+          </select>
+          </div>
+        </div>
+        
+        <div className="flex justify-between">
+          <p className="text-gray-300 text-sm">Wallet Balance</p>
+          <p>5.226165 ETH</p>
+        </div>
+        <button
+          type="button"
+          className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+         Make an offer
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setShowModal(false)} 
+          className="w-full border-blue-600 text-blue-600 border focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+        >
+          Cancel
+        </button>
+        
+      </form>
+    </div>
+  </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
               </div>
               <div className="py-5 w-[100%]">
                 <Bids w_percentage={"100"} bids={bids} />
