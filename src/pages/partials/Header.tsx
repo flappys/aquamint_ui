@@ -188,11 +188,11 @@ function Header() {
           <div className="flex-1 flex ml-8">
             <form className="w-full flex md:ml-0" action="#" method="GET">
               <input
-                className="w-[50%] ml-2 block  border-2 text-black  bg-white h-10 px-5 pr-16 rounded-lg outline-none text-sm "
+                className="searchbar"
                 type="search"
                 name="search"
                 placeholder="Search"
-              ></input>
+              />
             </form>
           </div>
           <div className="ml-4 flex items-center md:ml-6">
@@ -201,14 +201,11 @@ function Header() {
                 {TOP_MENU.map((top_menu: any) =>
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-lg text-sm font-medium text-[16px] "
+                    className="hdr-link"
                   >
                     {top_menu.name}
                   </a>
-
                 )}
-
-
                 <label
                   htmlFor="checked-toggle"
                   className="inline-flex relative cursor-pointer"
@@ -226,7 +223,7 @@ function Header() {
 
                 <a
                   href="#"
-                  className="text-gray-300 bg-gradient-to-r from-blue-500 to-blue-800 hover:bg-gray-700 hover:text-white px-8 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 bg-gradient-to-r from-blue-500 to-blue-800 hover:bg-gray-700 hover:text-white px-8 py-2 rounded-md text-sm font-medium ml-3 mr-3"
                 >
                   Create
                 </a>

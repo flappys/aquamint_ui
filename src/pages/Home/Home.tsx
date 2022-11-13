@@ -10,8 +10,7 @@ function Home() {
     },[])
   return (
     <>
-      <div>
-       
+      <div>       
         <div className="md:pl-[17rem] flex ">
           <HomeContent />
         </div>

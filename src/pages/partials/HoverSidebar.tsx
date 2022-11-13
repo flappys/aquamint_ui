@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ALLOWED_ROUTE_PATH_FOR_SIDEMENU, SIDEMENU, } from "../../shared/constants/static";
 import { useLocation } from "react-router-dom";
@@ -14,14 +14,14 @@ const HoverSidebar = () => {
     setShowHoverSidemenu(filter.length != 0)
   }, [location.pathname])
 
- 
+
 
 
 
   return (
-     <>
-     
-     {showHoverSidemenu == false ? <div className="hidden md:block md:flex w-[28%] bg md:flex-col md:fixed z-100">
+    <>
+
+      {showHoverSidemenu == false ? <div className="hidden md:block md:flex w-[28%] bg md:flex-col md:fixed z-100">
         <div className="flex-1 flex flex-col min-h-0 ">
 
           <section className="flex gap-6 absolute z-20">
@@ -38,7 +38,7 @@ const HoverSidebar = () => {
                     to={menu?.route}
 
                     key={i}
-                    className={menu.active  ? "bg-gray-900 text-white group flex items-center cursor-pointer px-2 py-2 text-sm font-medium rounded-md" : "text-white cursor-pointer group flex items-center px-2 py-2 text-sm font-medium rounded-md"}
+                    className={menu.active ? "bg-gray-900 text-white group flex items-center cursor-pointer px-2 py-2 text-sm font-medium rounded-md" : "text-white cursor-pointer group flex items-center px-2 py-2 text-sm font-medium rounded-md"}
                   >
                     <img
                       src={menu.imgSrc}
@@ -64,8 +64,8 @@ const HoverSidebar = () => {
         <Sidebar></Sidebar>
       </div>
       }
-     
-     </>
+
+    </>
 
   );
 };

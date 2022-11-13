@@ -76,7 +76,7 @@ function LineChart(props:any) {
 
   return (
     <>
-      <div className={`${props.w_percentage == 100 ? "md:w-[100%]" : "md:w-[50%]" } shadow border sm:rounded-lg sm:w-auto`}>
+      <div className={`${props.w_percentage == 100 ? "md:w-[100%]" : "md:w-[50%]" } shadow custom-border sm:rounded-lg sm:w-auto`}>
         <div className="flex justify-between px-4 py-5 sm:px-6">
           <h3 className="text-lg font-medium leading-6 ">Price History</h3>
           <div className="flex justify-around">
@@ -85,7 +85,7 @@ function LineChart(props:any) {
             <h3 className="text-sm text-gray-400 font-medium mx-2">Month</h3>
           </div>
         </div>
-        <div className="border-t border-gray-200">
+        <div className="custom-border-t">
           <dl>
             <div className="flex px-4 py-5 sm:gap-4 sm:px-6">
               <dt className="text-xs text-gray-500">🟡</dt>

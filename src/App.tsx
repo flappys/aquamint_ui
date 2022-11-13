@@ -28,24 +28,23 @@ function App() {
         <Header />
         <div className='flex flex-row'>
           <div className='w-[1%] xs:hidden md:block lg:block'>
-          <HoverSidebar />
+            <HoverSidebar />
           </div>
-       
+
           <div className='w-[97%] overflow-x-hidden mt-4'>
             <Routes>
-
               <Route path="/" element={<Home />}></Route>
               <Route path="/showAll/:id" element={<ShowAll />}></Route>
               <Route path="/buy-nft" element={<BuyNft />}></Route>
-              <Route path='/listing' element={<Listing></Listing>}></Route>
-              <Route path='/favourites' element={<Favorites></Favorites>}></Route>
-              <Route path='/following' element={<Following></Following>}></Route>
-              <Route path='/payouts' element={<Payouts></Payouts>}></Route>
-              <Route path='/auction/:id' element={<AuctionDetails></AuctionDetails>}></Route>
-              <Route path='/sales/:id' element={<SalesDetails></SalesDetails>}></Route>
-              <Route path='/profile' element={<Profile></Profile>}></Route>
-              <Route path='/collection/:id' element={<Profile></Profile>}></Route>
-              <Route path='*' element={<Notfound></Notfound>}></Route>
+              <Route path='/listing' element={<Listing />}></Route>
+              <Route path='/favourites' element={<Favorites />}></Route>
+              <Route path='/following' element={<Following />}></Route>
+              <Route path='/payouts' element={<Payouts />}></Route>
+              <Route path='/auction/:id' element={<AuctionDetails />}></Route>
+              <Route path='/sales/:id' element={<SalesDetails />}></Route>
+              <Route path='/profile' element={<Profile />}></Route>
+              <Route path='/collection/:id' element={<Profile />}></Route>
+              <Route path='*' element={<Notfound />}></Route>
             </Routes>
           </div>
 

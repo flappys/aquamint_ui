@@ -4,6 +4,8 @@ import { HiChevronDoubleRight } from "react-icons/hi2"
 import { useNavigate } from "react-router-dom"
 import { getInfuraURL } from "../../../utils/getIPFSURL"
 import CardLoader from "../skelton_loader/card_loader"
+import GridCardLoader from "../skelton_loader/Grid_card_loader"
+import GridContentItem from "./GridContentItem"
 
 function GridContent(props: Props) {
     const navigate = useNavigate();
@@ -12,18 +14,31 @@ function GridContent(props: Props) {
         navigate(props.route)
     }
 
-    return props?.api_data.length != 0 ? <><div className="py-2 flex justify-between">
-        <h1 className="relative top-5">{props.title}</h1>
-        <p  className="text-gray-500 text-sm flex items-center hover:text-blue-500 cursor-pointer relative top-5" onClick={gotoRouteShow}>
-            Show All
-            <span>
-                <HiChevronDoubleRight />
-            </span>
-        </p>
-    </div>
-        
-            <div className="mt-8  grid md:grid-cols-3 xs:grid-cols-2  xl:grid-cols-3  2xl:grid-cols-4 sm:grid-cols-2 gap-3"> {props.api_data.map((item: any, index: any) =>
-                <div key={index} onClick={()=>navigate(props.detail_route + "/" + item.positionId)}>
+    return props?.api_data.length != 0 ? <>
+        <div className="py-2 flex justify-between">
+            <h1 className="relative top-5">{props.title}</h1>
+            <p className="text-gray-500 text-sm flex items-center hover:text-blue-500 cursor-pointer relative top-5" onClick={gotoRouteShow}>
+                Show All
+                <span>
+                    <HiChevronDoubleRight />
+                </span>
+            </p>
+        </div>
+
+        <div className="mt-8  grid md:grid-cols-3 xs:grid-cols-1  xl:grid-cols-3  2xl:grid-cols-4 sm:grid-cols-2 gap-3">
+            {props.api_data.map((item: any, index: any) => <GridContentItem
+                key={index}
+                navigate={() => navigate(props.detail_route + "/" + item.positionId)}
+                img={getInfuraURL(item.meta.thumbnail || item.meta.media)}
+                time={'02:48:03'}
+                likes={116}
+                name={item.meta.name}
+                marketFee={item.marketFee}
+                author={'Ram'}
+            />
+            )}
+            {/* {props.api_data.map((item: any, index: any) =>
+                <div key={index} onClick={() => navigate(props.detail_route + "/" + item.positionId)}>
                     <div className="relative border rounded-lg cursor-pointer">
                         <div className="relative w-full h-72 rounded-lg overflow-hidden" >
                             <img
@@ -69,17 +84,19 @@ function GridContent(props: Props) {
                         </div>
                     </div>
                 </div>
-            )}
+            )} */}
 
-            </div>
-        
+        </div>
+
     </>
-        : <div className="flex" >
+        : <div className="">
+            <div className="mt-9">
+                <div className="bg-gray-700 w-full animate-pulse h-3 rounded-2xl mt-2"></div>
+            </div>
             <div className="mt-8 grid md:grid-flow-col gap-10 flex-wrap">
                 {props.skeleton_card.map((loader: any) => <div className="relative">
-                    <CardLoader height={15}></CardLoader>
+                    <GridCardLoader height={15}></GridCardLoader>
                 </div>)}
-
             </div>
         </div>
 }
@@ -90,9 +107,9 @@ function GridContent(props: Props) {
 interface Props {
     skeleton_card: any,
     api_data: any,
-    title:any,
-    route:any,
-    detail_route:any
+    title: any,
+    route: any,
+    detail_route: any
 }
 
 export default GridContent

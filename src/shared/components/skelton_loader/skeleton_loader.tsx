@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 function Skeleton(props:any){
 
-    const [maincss]=useState(`p-4 rounded border h-[${props.height}rem] w-[${props.width}rem] border-gray-200 shadow animate-pulse md:p-6 dark:border-gray-700`)
+    const [maincss]=useState(`p-4 rounded border h-[${props.height}rem] w-[${props.width}rem] border-gray-200 shadow animate-pulse md:p-6 dark:border-gray-700 mb-2`)
 
     return <div role="status" className={maincss}>
     <div className="flex justify-center items-center mb-4 h-20 bg-gray-300 rounded dark:bg-gray-700">
@@ -9,8 +9,8 @@ function Skeleton(props:any){
     </div>
     <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-46 mb-4"></div>
     <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-30 mb-2.5"></div>
-    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-20 mb-2.5"></div>
-    <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-10"></div>
+    {/* <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-20 mb-2.5"></div> */}
+    {/* <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-10"></div> */}
     
     <span className="sr-only">Loading...</span>
 </div>

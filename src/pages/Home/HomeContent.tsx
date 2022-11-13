@@ -53,66 +53,68 @@ function HomeContent() {
 
   return (
     <>
-      <main className=" border-gray-700 border p-3 rounded-lg">
+      <main className="w-full border-gray-700 border p-3 rounded-lg">
         <div className="">
-        
-          
-            <FeaturedHome data={featured}></FeaturedHome>
+          <FeaturedHome data={featured} />
+          <div className="mt-2">
+            <GridContent
+              detail_route={"/auction"}
+              route={"/showAll/2"}
+              title={"Running Auctions"}
+              skeleton_card={SKELETON_COUNT}
+              api_data={auctions}
+            />
+          </div>
 
-            <div className="mt-10">
-            <GridContent detail_route={"/auction"} route={"/showAll/2"} title={"Running Auctions"} skeleton_card={SKELETON_COUNT} api_data={auctions}></GridContent>
-            </div>
-           
-
-            <GridContent detail_route={"/sales"} route={"/showAll/1"} title={"Sales"} skeleton_card={SKELETON_COUNT} api_data={sales}></GridContent>
-
-
-            <div className="flex justify-between mt-10">
-              <h1>Top Collections</h1>
-              <div>
-                <button
-                  type="button"
-                  className="text-white bg-blue-600 hover:bg-blue-600 rounded-lg text-sm px-5 py-1 mr-2 mb-2"
-                >
-                  1 Day
-                </button>
-                <button
-                  type="button"
-                  className="text-white bg-gray-800 hover:bg-blue-600 rounded-lg text-sm px-5 py-1 mr-2 mb-2"
-                >
-                  7 Days
-                </button>
-                <button
-                  type="button"
-                  className="text-white bg-gray-800 hover:bg-blue-600 rounded-lg text-sm px-5 py-1 mr-2 mb-2"
-                >
-                  30 Days
-                </button>
-              </div>
-            </div>
-
-            <div className="relative bottom-18">
-              <div className="grid grid-cols-5 md:grid-cols-4 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-             
-                    {COLLECTIONS.map((collection)=><div className="flex space-x-4 lg:space-x-6 mt-4">
-                      <span>{collection.count}</span>
-                      <img
-                        className="w-16 h-16 rounded-lg lg:w-20 lg:h-20"
-                        src={tower1}
-                        alt=""
-                      />
-                      <div className="flex flex-col-reverse">
-                        <h3>{collection.name}</h3>
-                        <span className="text-sm">{collection.price}</span>
-                      </div>
-                    </div>)}
-                 
-                  
-            
-              </div>
+          <div className="flex justify-between mt-10">
+            <h1>Top Collections</h1>
+            <div>
+              <button
+                type="button"
+                className="text-white bg-blue-600 hover:bg-blue-600 rounded-lg text-sm px-5 py-1 mr-2 mb-2"
+              >
+                1 Day
+              </button>
+              <button
+                type="button"
+                className="text-white bg-gray-800 hover:bg-blue-600 rounded-lg text-sm px-5 py-1 mr-2 mb-2"
+              >
+                7 Days
+              </button>
+              <button
+                type="button"
+                className="text-white bg-gray-800 hover:bg-blue-600 rounded-lg text-sm px-5 py-1 mr-2 mb-2"
+              >
+                30 Days
+              </button>
             </div>
           </div>
-        
+
+          <div className="relative bottom-18">
+            <div className="grid grid-cols-5 md:grid-cols-4 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {COLLECTIONS.map((collection) => <div className="flex space-x-4 lg:space-x-6 mt-4">
+                <span>{collection.count}.</span>
+                <img
+                  className="w-16 h-16 rounded-lg lg:w-20 lg:h-20"
+                  src={tower1}
+                  alt=""
+                />
+                <div className="flex flex-col-reverse">
+                  <span className="text-sm bx-cnt-subname text-left">{collection.price}</span>
+                  <h3>{collection.name}</h3>
+                </div>
+              </div>)}
+            </div>
+          </div>
+
+          <GridContent
+            detail_route={"/sales"}
+            route={"/showAll/1"}
+            title={"Sales"}
+            skeleton_card={SKELETON_COUNT}
+            api_data={sales}
+          />
+        </div>
       </main>
     </>
   );

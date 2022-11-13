@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@100;500&display=swap');
 body {
 	
 	font-weight: 500;
@@ -17,7 +17,32 @@ body {
 @font-face {
 	font-family: "Montserrat";
 	src: url("./fonts/Montserrat.ttf");
-  }
+}
+
+
+@font-face {
+	font-family: "Montserrat-Light";
+	src: url("./fonts/Montserrat-Light.ttf");
+}
+
+
+@font-face {
+	font-family: "Montserrat-Medium";
+	src: url("./fonts/Montserrat-Medium.ttf");
+}
+
+
+@font-face {
+	font-family: "Montserrat-Regular";
+	src: url("./fonts/Montserrat-Regular.ttf");
+}
+
+
+
+@font-face {
+	font-family: "Montserrat-SemiBold";
+	src: url("./fonts/Montserrat-SemiBold.ttf");
+}
 
 
 
