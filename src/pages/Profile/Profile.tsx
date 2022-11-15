@@ -295,7 +295,7 @@ function Profile() {
                         </div>
                         <div className="flex justify-between py-1">
                           <p className="mt-1 text-sm text-gray-500">Author</p>
-                          <p className="mt-1 text-sm text-white">{item.creator.name}</p>
+                          <p className="mt-1 text-sm text-white">{(item.creator.name).substring(0,10)}</p>
                         </div>
 
                         <div className="flex flex-col mx-5 py-2">

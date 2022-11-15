@@ -200,7 +200,7 @@ function Header() {
               <div className="flex space-x-4 items-center">
                 {TOP_MENU.map((top_menu: any) =>
                   <a
-                    href="#"
+                    href={top_menu.link}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-lg text-sm font-medium text-[16px] "
                   >
                     {top_menu.name}

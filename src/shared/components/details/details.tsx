@@ -8,6 +8,8 @@ import { BsChevronDown, BsClock, BsHeart, BsChevronUp } from "react-icons/bs";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { COLLECTION_PARAMS } from "../../constants/api_data";
 import { AUCTIONS, COLLECTION } from "../../constants/api_endpoints";
+import "react-datetime/css/react-datetime.css";
+import Datetime from "react-datetime";
 
 function Details() {
   const { makeRequests } = useHelper();
@@ -17,7 +19,8 @@ function Details() {
   const [moreData, setMoreData] = useState<any>([]);
   const navigate = useNavigate();
   const [showModal, setShowModal] = React.useState(false);
-
+  const [showDateTime, setShowDateTime] = React.useState(false);
+  
   useEffect(() => {
     getDetails();
   }, []);
@@ -106,6 +109,13 @@ const gotoRoute = () => {
   navigate(`/collection/${data?.collection?.id}`);
 };
 
+const showDT = (e:any) => {
+  if(e.currentTarget.value == 'custom'){
+    setShowDateTime(true);
+  } else {
+    setShowDateTime(false);
+  }
+}
 
   return (
     <>
@@ -382,17 +392,21 @@ const gotoRoute = () => {
             Duration
           </label>
           <div className="flex gap-3">
-          <input
-            type="text"
-            name="Duration"
-            className=" bg-[#0e0e0e] w-[60%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-            
-          />
-          <select className="bg-[#0e0e0e] w-[35%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1  ml-8 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" name="" id="">
-          <option value="">Hours</option>
-            <option value="">Days</option>
-            <option value="">Weeks</option>
-            <option value="">Custom</option>
+          {showDateTime == false ? 
+            <input
+                type="text"
+                name="Duration"
+                className=" bg-[#0e0e0e] w-[60%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                
+              /> 
+              :
+              <Datetime className="text-white w-[60%]" />
+          }
+          <select onChange={(e)=> showDT(e)} className="bg-[#0e0e0e] w-[35%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1  ml-8 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" name="" id="">
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="custom">Custom</option>
           </select>
           </div>
         </div>

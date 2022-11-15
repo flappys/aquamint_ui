@@ -11,6 +11,8 @@ import { COLLECTION_PARAMS } from "../../shared/constants/api_data";
 import { AUCTIONS, COLLECTION } from "../../shared/constants/api_endpoints";
 import { BsChevronDown, BsClock, BsHeart, BsChevronUp } from "react-icons/bs";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
+import "react-datetime/css/react-datetime.css";
+import Datetime from "react-datetime";
 
 function SalesDetails() {
   const { location, setLocation } = useContext(DataContext);
@@ -18,6 +20,7 @@ function SalesDetails() {
   const navigate = useNavigate();
   const [moreData, setMoreData] = useState<any>([]);
   const [showModal, setShowModal] = React.useState(false);
+  const [showDateTime, setShowDateTime] = React.useState(false);
 
   useEffect(() => {
     setLocation(locations.pathname);
@@ -112,6 +115,14 @@ function SalesDetails() {
   };
 
   const getMorefromCollections = async () => {};
+
+  const showDT = (e:any) => {
+    if(e.currentTarget.value == 'custom'){
+      setShowDateTime(true);
+    } else {
+      setShowDateTime(false);
+    }
+  }
 
   return (
     <>
@@ -353,17 +364,21 @@ function SalesDetails() {
             Duration
           </label>
           <div className="flex gap-3">
-          <input
-            type="text"
-            name="Duration"
-            className=" bg-[#0e0e0e] w-[60%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-            
-          />
-          <select className="bg-[#0e0e0e] w-[35%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1  ml-8 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" name="" id="">
-            <option value="">Hours</option>
-            <option value="">Days</option>
-            <option value="">Weeks</option>
-            <option value="">Custom</option>
+          {showDateTime == false ? 
+            <input
+                type="text"
+                name="Duration"
+                className=" bg-[#0e0e0e] w-[60%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                
+              /> 
+              :
+              <Datetime className="text-white w-[60%]" />
+          }
+          <select onChange={(e)=> showDT(e)} className="bg-[#0e0e0e] w-[35%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1  ml-8 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" name="" id="">
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="custom">Custom</option>
           </select>
           </div>
         </div>

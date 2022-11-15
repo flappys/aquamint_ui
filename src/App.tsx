@@ -16,6 +16,8 @@ import SalesDetails from './pages/SalesDetail/sales';
 import ShowAll from './pages/showAll/showAll';
 import Profile from './pages/Profile/Profile';
 import React, { useContext, useEffect, useState } from "react";
+import ProfileList from './pages/Profile/ProfileList';
+import TopSellingNFT from './pages/Listing/TopSellingNFT';
 function App() {
 
 
@@ -31,7 +33,7 @@ function App() {
           <HoverSidebar />
           </div>
        
-          <div className='w-[97%] overflow-x-hidden mt-4'>
+          <div className='w-[100%] overflow-x-hidden mt-4'>
             <Routes>
 
               <Route path="/" element={<Home />}></Route>
@@ -46,6 +48,9 @@ function App() {
               <Route path='/profile' element={<Profile></Profile>}></Route>
               <Route path='/collection/:id' element={<Profile></Profile>}></Route>
               <Route path='*' element={<Notfound></Notfound>}></Route>
+              <Route path='/activity' element={<ProfileList/>}></Route>
+              <Route path='/top-selling' element={<TopSellingNFT/>}></Route>
+
             </Routes>
           </div>
 

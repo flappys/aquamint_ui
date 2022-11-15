@@ -69,15 +69,19 @@ export const Tabs = [
 
 export const TOP_MENU =[
     {
-    name:"Explore"
+    name:"Top Selling",
+    link:"/top-selling"
 },
 {
-    name:"Stats"
+    name:"Stats",
+    link:"#"
 },
 {
-    name:"Drops"
+    name:"Drops",
+    link:"#"
 },
 {
-    name:"Activity"
+    name:"Activity",
+    link:"/activity"
 }
 ]
